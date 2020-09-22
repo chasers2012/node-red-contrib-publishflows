@@ -90,10 +90,10 @@
         // Append merge publishflows button to dependency panel
         var src = '<button id="mergepublishflows" class="editor-button editor-button-small" style="margin-top:10px;float: left;">merge publishflows</button>';
         $('li#red-ui-tab-project-settings-tab-deps').css('z-index', 0); // bugfix tab floats over merge review panel
-        $('#project-settings-tab-deps button').before(src);
+        $('#red-ui-project-settings-tab-deps button').before(src);
         
         // Append Publish tab option to project settings
-        var ul = $("#red-ui-tab-project-settings-tab-settings").parent();
+        var ul = $("#red-ui-tab-red-ui-project-settings-tab-settings").parent();
         if (ul.length == 0) return;
         var html = '<li class="red-ui-tab" id="red-ui-tab-project-settings-tab-publish">';
         html += '<a href="#project-settings-tab-publish" class="red-ui-tab-label" title="Publish">';
@@ -101,8 +101,8 @@
         ul.append(html);
         
         // Append screen layout
-        var div = $("#user-settings-tabs-content");
-        html = '<div id="project-settings-tab-publish" class="project-settings-tab-pane node-help" style="display: none;">';
+        var div = $(".red-ui-settings-tabs-content");
+        html = '<div id="project-settings-tab-publish" class="red-ui-project-settings-tab-pane node-help" style="display: none;">';
         html += '  <h3>Manifest</h3>';
         html += '  <div class="user-settings-section">';
         html += '    <div class="red-ui-editableList">';
@@ -158,7 +158,7 @@
             if ($(this).attr("href") == "#project-settings-tab-publish") {
               ul.children("li").removeClass("active");
               $(this).parent().addClass("active");
-              div.children("div.project-settings-tab-pane").hide();
+              div.children("div.red-ui-project-settings-tab-pane").hide();
               $("#project-settings-tab-publish").show();
             }else{
               $(this).parent().removeClass("active");

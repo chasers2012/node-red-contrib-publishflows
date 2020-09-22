@@ -5,7 +5,7 @@ module.exports = function(RED) {
    */
 
   // Requires
-  var projects = require(RED.settings.coreNodesDir + "/../red/runtime/storage/index.js").projects;
+  var projects = require(RED.settings.coreNodesDir + "/../runtime/lib/storage/index.js").projects;
   var fse = require("fs-extra");
   var glob = require("glob");
   var S = require("string");
@@ -277,7 +277,7 @@ module.exports = function(RED) {
 
   function mergePublishFlows(rmv) {
     return new Promise(function(resolve, reject) {
-      var nodes = require(RED.settings.coreNodesDir + "/../red/runtime/nodes/index.js");
+      var nodes = require(RED.settings.coreNodesDir + "/../runtime/lib/nodes/index.js");
       projects.getFlows().then(function() {
         if (rmv == null) {
           var sav = JSON.parse(JSON.stringify(arguments[0]));
@@ -482,7 +482,7 @@ module.exports = function(RED) {
     ap.package["node-red"]["nodes"][ap.name + "_manifest"] = "manifest.js";
     projects.updateProject(null, ap.name, {"dependencies":{}});
     projects.updateProject(null, ap.name, dep);
-    var nodes = require(RED.settings.coreNodesDir + "/../red/runtime/nodes/index.js");
+    var nodes = require(RED.settings.coreNodesDir + "/../runtime/lib/nodes/index.js");
     x = 0;
   }
   RED.nodes.registerType("publishflows",function(){
